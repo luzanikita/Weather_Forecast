@@ -6,10 +6,24 @@
 span {
     align-self: auto;
 }
+
+.month {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#review {
+    font-size: 24px;
+}
+
 #main-info {
     font-size: 24px;
 }
 
 #main-ico, #main-value {
     font-size: 96px;
+}
+
+#month-ico {
+    font-size: 48px;
 }
