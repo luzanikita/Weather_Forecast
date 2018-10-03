@@ -123,10 +123,15 @@
                     document.getElementById(i).appendChild(row)
                     for(var j = 0; j < 7; j++)
                     {
+
+                        var bord = document.createElement('div')
+                        bord.id = i + '' + j
+                        bord.className = 'col border-right'                        
+                        document.getElementById(i + 'row').appendChild(bord)
+
                         var row1 = document.createElement('div');
                         row1.id = i + 'row' + 1 + '' + j
                         row1.className = 'row my-2'
-                        document.getElementById(i + 'row').appendChild(row1)
 
                         var span = document.createElement('div');
                         span.className = 'mx-auto'
@@ -141,7 +146,6 @@
                         ico.id = 'month-ico'
                         ico.className = 'wi wi-night-sleet mx-auto'
                         row2.appendChild(ico)
-                        document.getElementById(i + 'row').appendChild(row2)
 
                         var row3 = document.createElement('div');
                         row3.id = i + 'row' + 3 + '' + j
@@ -158,6 +162,13 @@
                         var span2 = document.createElement('div');
                         span2.appendChild(document.createTextNode('°C'))
                         inRow3.appendChild(span2)
+
+                        bord.appendChild(row1)
+                        bord.appendChild(row2)
+                        bord.appendChild(row3)
+
+
+
 
                     }
                 }
