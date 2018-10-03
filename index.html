@@ -109,70 +109,73 @@
         </div>
 
         <script>
-            window.onload=function(){
-                for(var i = 0; i < 4; i++){
+            window.onload=function()
+            {
+                for(var i = 1; i <= 4; i++){
                     var
                     d = document.createElement('div');
-                    d.id = i;
+                    d.id = i+'div';
                     d.className = 'container my-5'
                     document.body.appendChild(d);
                     var
                     row = document.createElement('div');
                     row.id = i + 'row'
                     row.className = 'row align-items-center my-2'
-                    document.getElementById(i).appendChild(row)
-                    for(var j = 0; j < 7; j++)
+                    document.getElementById(i+'div').appendChild(row)
+                    for(var j = 1; j <= 7; j++)
                     {
 
                         var bord = document.createElement('div')
-                        bord.id = i + '' + j
-                        bord.className = 'col border-right'                        
-                        document.getElementById(i + 'row').appendChild(bord)
+                        bord.id = ((i-1)*7 + j)
+                        bord.className = 'col border-right'
+                        document.getElementById(i + 'row').appendChild(bord)                        
 
-                        var row1 = document.createElement('div');
-                        row1.id = i + 'row' + 1 + '' + j
-                        row1.className = 'row my-2'
+                        var dataRow = document.createElement('div');
+                        dataRow.id = 'DatarRow' + ((i-1)*7 + j)
+                        dataRow.className = 'row my-2'
 
                         var span = document.createElement('div');
                         span.className = 'mx-auto'
-                        span.appendChild(document.createTextNode('Пн, 01.10.18'))
-                        row1.appendChild(span)
+                        span.appendChild(document.createTextNode('Пн, ' + ((i-1)*7 + j) + '.10.18'))
+                        dataRow.appendChild(span)
 
-                        var row2 = document.createElement('div');
-                        row2.id = i + 'row' + 2 + '' + j
-                        row2.className = 'row my-2'
+                        var icoRow = document.createElement('div');
+                        icoRow.id = 'IcoRow' + ((i-1)*7 + j)
+                        icoRow.className = 'row my-2'
 
                         var ico = document.createElement('i');
                         ico.id = 'month-ico'
                         ico.className = 'wi wi-night-sleet mx-auto'
-                        row2.appendChild(ico)
+                        icoRow.appendChild(ico)
 
-                        var row3 = document.createElement('div');
-                        row3.id = i + 'row' + 3 + '' + j
-                        row3.className = 'row my-3 month'
+                        var gradRow = document.createElement('div');
+                        gradRow.id = 'GradRow' + ((i-1)*7 + j)
+                        gradRow.className = 'row my-3 month'
 
-                        var inRow3 = document.createElement('div');
-                        inRow3.id = i + 'inRow3'
-                        inRow3.className = 'mx-auto'
+                        var inGradRow = document.createElement('div');
+                        inGradRow.id = 'inGradRow' + ((i-1)*7 + j)
+                        inGradRow.className = 'mx-auto'
 
                         var span1 = document.createElement('div');
-                        span1.appendChild(document.createTextNode('17'))
-                        inRow3.appendChild(span1)
+                        span1.appendChild(document.createTextNode(getRandomInt(5,15)))
+                        inGradRow.appendChild(span1)
 
                         var span2 = document.createElement('div');
                         span2.appendChild(document.createTextNode('°C'))
-                        inRow3.appendChild(span2)
+                        inGradRow.appendChild(span2)
 
-                        bord.appendChild(row1)
-                        bord.appendChild(row2)
-                        bord.appendChild(row3)
-
-
-
+                        gradRow.appendChild(inGradRow)
+                        bord.appendChild(dataRow)
+                        bord.appendChild(icoRow)
+                        bord.appendChild(gradRow)
 
                     }
                 }
                                     
+            }
+
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min)) + min;
             }
         </script>
         <div id = '1' class="container my-5">
