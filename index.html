@@ -46,25 +46,27 @@
           </nav>
         </header>
 
-        <div class="container my-5">
+        <div class="container my-5 w-75">
             <div class="row align-items-center">
                 <div class="col-lg border">
-                    <div class="raw">
+                    <div class="row">
                         <span class="">Харьков, Харьковськая область</span>
                     </div>
-                    <div class="raw">
+                    <div class="row">
                         <span>Пятница, 05.10.18</span>
+                    </div>
+                    <div class="row">
+                        <span>Преимущественно облачно</span>
                     </div>
                 </div>
             </div>
 
-            <div class="row align-items-center border w-75 mx-auto" id="main-info">
-                <div class="col-lg-1.5">
-                    <i class="wi wi-night-sleet" id="main-ico"></i>
-                </div>
-                <div class="col-lg-5" id='main-value'>
-                    <span>17</span>
-                    <span>°C</span>
+            <div class="row align-items-center border h-150 mx-auto" id="main-info">
+                <div class="col-lg-7">
+                    <i class="wi wi-night-sleet" id="main-ico">
+                        <span>17</span>
+                        <span>°C</span>
+                    </i>
                 </div>
                 <div class="col-lg">
                     <div class="row">
@@ -99,166 +101,9 @@
                     </div>    
                 </div>
             </div>
-
-            <div class="row border">
-                <div class="col-lg" id="review">
-                    <span class="text-center">Преимущественно облачно</span>
-                </div>
-            </div>
-        
         </div>
 
-        <script>
-            window.onload=function()
-            {
-                for(var i = 1; i <= 4; i++){
-                    var
-                    d = document.createElement('div');
-                    d.id = i+'div';
-                    d.className = 'container my-5'
-                    document.body.appendChild(d);
-                    var
-                    row = document.createElement('div');
-                    row.id = i + 'row'
-                    row.className = 'row align-items-center my-2'
-                    document.getElementById(i+'div').appendChild(row)
-                    for(var j = 1; j <= 7; j++)
-                    {
-
-                        var bord = document.createElement('div')
-                        bord.id = ((i-1)*7 + j)
-                        bord.className = 'col border-right'
-                        document.getElementById(i + 'row').appendChild(bord)                        
-
-                        var dataRow = document.createElement('div');
-                        dataRow.id = 'DatarRow' + ((i-1)*7 + j)
-                        dataRow.className = 'row my-2'
-
-                        var span = document.createElement('div');
-                        span.className = 'mx-auto'
-                        span.appendChild(document.createTextNode('Пн, ' + ((i-1)*7 + j) + '.10.18'))
-                        dataRow.appendChild(span)
-
-                        var icoRow = document.createElement('div');
-                        icoRow.id = 'IcoRow' + ((i-1)*7 + j)
-                        icoRow.className = 'row my-2'
-
-                        var ico = document.createElement('i');
-                        ico.id = 'month-ico'
-                        ico.className = 'wi wi-night-sleet mx-auto'
-                        icoRow.appendChild(ico)
-
-                        var gradRow = document.createElement('div');
-                        gradRow.id = 'GradRow' + ((i-1)*7 + j)
-                        gradRow.className = 'row my-3 month'
-
-                        var inGradRow = document.createElement('div');
-                        inGradRow.id = 'inGradRow' + ((i-1)*7 + j)
-                        inGradRow.className = 'mx-auto'
-
-                        var span1 = document.createElement('span');
-                        span1.appendChild(document.createTextNode(getRandomInt(5,15)))
-                        inGradRow.appendChild(span1)
-
-                        var span2 = document.createElement('span');
-                        span2.appendChild(document.createTextNode('°C'))
-                        inGradRow.appendChild(span2)
-
-                        gradRow.appendChild(inGradRow)
-                        bord.appendChild(dataRow)
-                        bord.appendChild(icoRow)
-                        bord.appendChild(gradRow)
-
-                    }
-                }
-                                    
-            }
-
-            function getRandomInt(min, max) {
-                return Math.floor(Math.random() * (max - min)) + min;
-            }
-        </script>
-        <div id = '1' class="container my-5">
-            <div class="row align-items-center my-2">
-                <div class="col border-right">
-                    <div class="row my-2" ><span class="mx-auto">Пн, 01.10.18</span></div>
-                    <div class="row my-2 "><i class="wi wi-night-sleet mx-auto" id="month-ico"></i></div>
-                    <div class="row my-3 month">
-                        <div class="mx-auto">
-                            <span>17</span>
-                            <span>°C</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col border-right">
-                    <div class="row my-2" ><span class="mx-auto">Пн, 01.10.18</span></div>
-                    <div class="row my-2 "><i class="wi wi-night-sleet mx-auto" id="month-ico"></i></div>
-                    <div class="row my-3 month">
-                        <div class="mx-auto">
-                            <span>17</span>
-                            <span>°C</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col border-right">
-                    <div class="row my-2" ><span class="mx-auto">Пн, 01.10.18</span></div>
-                    <div class="row my-2 "><i class="wi wi-night-sleet mx-auto" id="month-ico"></i></div>
-                    <div class="row my-3 month">
-                        <div class="mx-auto">
-                            <span>17</span>
-                            <span>°C</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col border-right">
-                    <div class="row my-2" ><span class="mx-auto">Пн, 01.10.18</span></div>
-                    <div class="row my-2 "><i class="wi wi-night-sleet mx-auto" id="month-ico"></i></div>
-                    <div class="row my-3 month">
-                        <div class="mx-auto">
-                            <span>17</span>
-                            <span>°C</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col border-right">
-                    <div class="row my-2" ><span class="mx-auto">Пн, 01.10.18</span></div>
-                    <div class="row my-2 "><i class="wi wi-night-sleet mx-auto" id="month-ico"></i></div>
-                    <div class="row my-3 month">
-                        <div class="mx-auto">
-                            <span>17</span>
-                            <span>°C</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col border-right">
-                    <div class="row my-2" ><span class="mx-auto">Пн, 01.10.18</span></div>
-                    <div class="row my-2 "><i class="wi wi-night-sleet mx-auto" id="month-ico"></i></div>
-                    <div class="row my-3 month">
-                        <div class="mx-auto">
-                            <span>17</span>
-                            <span>°C</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="row my-2" ><span class="mx-auto">Пн, 01.10.18</span></div>
-                    <div class="row my-2 "><i class="wi wi-night-sleet mx-auto" id="month-ico"></i></div>
-                    <div class="row my-3 month">
-                        <div class="mx-auto">
-                            <span>17</span>
-                            <span>°C</span>
-                        </div>
-                    </div>
-                </div> 
-
-            </div>
-        </div>
+        <script src="js/main.js"></script>
     </main>
 
 

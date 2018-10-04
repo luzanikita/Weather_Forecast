@@ -5,6 +5,7 @@
 
 span {
     align-self: auto;
+    font-family: Arial;
 }
 
 .month {
@@ -18,6 +19,7 @@ span {
 
 #main-info {
     font-size: 24px;
+    height: 200px;
 }
 
 #main-ico, #main-value {
