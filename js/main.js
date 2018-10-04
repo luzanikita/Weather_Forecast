@@ -3,7 +3,7 @@ window.onload=function() {
         var
         d = document.createElement('div');
         d.id = i+'div';
-        d.className = 'container w-75'
+        d.className = 'container w-50'
         document.body.appendChild(d);
         var
         row = document.createElement('div');
@@ -14,7 +14,7 @@ window.onload=function() {
             
             var bord = document.createElement('div')
             bord.id = ((i-1)*7 + j)
-            bord.className = 'col border-right'
+            bord.className = 'col day'
             document.getElementById(i + 'row').appendChild(bord)                        
 
             var dataRow = document.createElement('div');

@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: rgb(207, 240, 253);
+    background-color: rgb(227, 247, 255);
 }
 
 span {
@@ -12,13 +12,14 @@ span {
     font-family: Arial;
 }
 
-.head {
-    background-color: rgb(123, 187, 212);
+.navbar {
+    background-color: rgb(19, 64, 107);
 }
+
 .image {
-    background-image: url(../images/clouds.jpg);
-    background-color: #fff;
-    background-size: 520px 200px;
+    background-image: url(../images/sun.jpg);
+    background-color: rgb(63, 130, 192);
+    background-size: 470px 200px;
     background-repeat: no-repeat;
 }
 
@@ -27,30 +28,46 @@ span {
     font-weight: bold;
 }
 
-#review {
-    font-size: 24px;
+.week {
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(19, 64, 107);
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px #000;
+    border: 4px solid  rgb(63, 130, 192);
+}
+
+.day {
+    background-color: rgba(63, 130, 192, 0.171);
+}
+
+#extra {
+    padding-left: 20px;
 }
 
 #main-info {
-    padding-left: 80px;
-    font-size: 24px;
+    font-size: 26px;
     height: 200px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 1px #000;
 }
 
 #main-ico {
+    padding-left: 60px;
     font-size: 96px;
     color: #fff;
     text-shadow: 4px 4px 5px #000;
 }
 
 #main-temp {
+    padding-left: 60px;
     font-size: 88px;
     color: #fff;
     text-shadow: 3px 3px 5px #000;
 }
 
 #main-date {
-    padding-left: 90px;
+    padding-left: 150px;
     font-size: 26px;
     color: #fff;
     text-shadow: 2px 2px 1px #000;
