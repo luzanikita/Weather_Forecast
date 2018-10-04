@@ -3,9 +3,23 @@
     padding: 0;
 }
 
+body {
+    background-color: rgb(207, 240, 253);
+}
+
 span {
     align-self: auto;
     font-family: Arial;
+}
+
+.head {
+    background-color: rgb(123, 187, 212);
+}
+.image {
+    background-image: url(../images/clouds.jpg);
+    background-color: #fff;
+    background-size: 520px 200px;
+    background-repeat: no-repeat;
 }
 
 .month {
@@ -18,12 +32,28 @@ span {
 }
 
 #main-info {
+    padding-left: 80px;
     font-size: 24px;
     height: 200px;
 }
 
-#main-ico, #main-value {
+#main-ico {
     font-size: 96px;
+    color: #fff;
+    text-shadow: 4px 4px 5px #000;
+}
+
+#main-temp {
+    font-size: 88px;
+    color: #fff;
+    text-shadow: 3px 3px 5px #000;
+}
+
+#main-date {
+    padding-left: 90px;
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 2px 2px 1px #000;
 }
 
 #month-ico {
