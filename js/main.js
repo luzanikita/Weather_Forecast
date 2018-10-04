@@ -1,7 +1,8 @@
-window.onload=function() {
-    for(var i = 1; i <= 4; i++){
-        var
-        d = document.createElement('div');
+window.onload=render(1,4);
+
+function render(b, e) {
+    for(var i = b; i <= e; i++){
+        var d = document.createElement('div');
         d.id = i+'div';
         d.className = 'container w-50'
         document.body.appendChild(d);
@@ -23,7 +24,7 @@ window.onload=function() {
 
             var span = document.createElement('div');
             span.className = 'mx-auto'
-            span.appendChild(document.createTextNode('Пн, ' + ((i-1)*7 + j) + '.10.18'))
+            span.appendChild(document.createTextNode(((i-1)*7 + j) + '.10.18'))
             dataRow.appendChild(span)
 
             var icoRow = document.createElement('div');
@@ -64,3 +65,7 @@ window.onload=function() {
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
+$('.day').on('click', 'div', function(){
+    $(this).addClass('active')
+});
