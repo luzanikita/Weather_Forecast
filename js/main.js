@@ -89,24 +89,25 @@ function render(b, e) {
             bord.appendChild(icoRow)
             bord.appendChild(gradRow)
 
-            document.getElementById(bord.id).onclick = function()
-            {
-                document.getElementById('main-temp-span').textContent = 
-                " " + document.getElementById('span1' + this.id).textContent
-
-                var day = getDay(this.id)
-                
-                var grad = document.getElementById('span1' + this.id).
-                    textContent.substring(0, document.getElementById('span1' + this.id).textContent.length - 2)
-
-                changeImage(grad)
-
-                document.getElementById('main-date-span').textContent = 
-                `Харьков ${day} ${this.id}.${new Date().getMonth()+1}.18`
-                $(this).addClass('active')
-            }
+            document.getElementById(id).onclick = function() { mainInfoUpdate(this.id) }
         }
     }          
+}
+
+function mainInfoUpdate(id)
+{
+    document.getElementById('main-temp-span').textContent = 
+    " " + document.getElementById('span1' + id).textContent
+
+    var day = getDay(id)
+                
+    var grad = document.getElementById('span1' + id).
+    textContent.substring(0, document.getElementById('span1' + id).textContent.length - 2)
+
+    changeImage(grad)
+
+    document.getElementById('main-date-span').textContent = 
+    `Харьков ${day} ${id}.${new Date().getMonth()+1}.18`
 }
 
 function getDay(id)
