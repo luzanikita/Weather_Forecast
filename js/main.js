@@ -1,6 +1,27 @@
-window.onload=render(1,4);
+window.onload=render(1,5);
+window.onload=mainWindow();
+function daysInMonth(month) {
+        return 32 - new Date(new Date().getFullYear(), month, 32).getDate();
+    };
+
+function mainWindow()
+{
+    var id = new Date().getDate()
+    var grad = document.getElementById('span1' + id).
+    textContent.substring(0, document.getElementById('span1' + id).textContent.length - 2)
+    changeImage(grad)
+    document.getElementById('main-info')
+    var day = getDay(id)
+    document.getElementById('main-temp-span').textContent = 
+    " " + document.getElementById('span1' + id).textContent
+
+    document.getElementById('main-date-span').textContent = 
+        `Харьков ${day} ${id}.${new Date().getMonth()+1}.18`
+}
+
 
 function render(b, e) {
+    var curDate = new Date()
     for(var i = b; i <= e; i++)
     {
         var d = document.createElement('div');
@@ -13,8 +34,19 @@ function render(b, e) {
         row.className = 'row align-items-center my-2'
         document.getElementById(i+'div').appendChild(row)
         for(var j = 1; j <= 7; j++) {
-            
             var id = (i-1)*7 + j;
+
+            if(id > daysInMonth(new Date().getMonth())) 
+            {
+                for(; j<= 7; j++)
+                {
+                    var bord = document.createElement('div')
+                    bord.id = id
+                    bord.className = 'col'
+                    document.getElementById(i + 'row').appendChild(bord)  
+                }
+                break
+            }
 
             var bord = document.createElement('div')
             bord.id = id
@@ -27,7 +59,7 @@ function render(b, e) {
 
             var span = document.createElement('div');
             span.className = 'mx-auto'
-            span.appendChild(document.createTextNode(id + '.10.18'))
+            span.appendChild(document.createTextNode(`${id}.${curDate.getMonth()+1}.18`))
             dataRow.appendChild(span)
 
             var icoRow = document.createElement('div');
@@ -61,43 +93,91 @@ function render(b, e) {
             {
                 document.getElementById('main-temp-span').textContent = 
                 " " + document.getElementById('span1' + this.id).textContent
-                switch (this.id%7)
-                {
-                    case 1:
-                        var day = 'Пн'
-                        break
-                    case 2:
-                        var day = 'Вт'
-                        break
-                    case 3:
-                        var day = 'Ср'
-                        break
-                    case 4:
-                        var day = 'Чт'
-                        break
-                    case 5:
-                        var day = 'Пт'
-                        break
-                    case 6:
-                        var day = 'Сб'
-                        break
-                    default:
-                        var day = 'Вс'
-                        break
-                }
-                document.getElementById('main-date-span').textContent = `Харьков ${day} ${this.id}.10.19`
+
+                var day = getDay(this.id)
+                
+                var grad = document.getElementById('span1' + this.id).
+                    textContent.substring(0, document.getElementById('span1' + this.id).textContent.length - 2)
+
+                changeImage(grad)
+
+                document.getElementById('main-date-span').textContent = 
+                `Харьков ${day} ${this.id}.${new Date().getMonth()+1}.18`
+                $(this).addClass('active')
             }
         }
     }          
 }
 
+function getDay(id)
+{
+    switch (id%7)
+    {
+        case 1:
+            var day = 'Пн'
+            break
+        case 2:
+            var day = 'Вт'
+            break
+        case 3:
+            var day = 'Ср'
+            break
+        case 4:
+            var day = 'Чт'
+            break
+        case 5:
+            var day = 'Пт'
+            break
+        case 6:
+            var day = 'Сб'
+            break
+        default:
+            var day = 'Вс'
+            break
+    }
+    return day
+}
 
+function changeImage(grad)
+{
+
+    if(new Date().getHours() >= 17)
+    {
+        if(grad >= 11)
+        {
+            document.getElementById('main-info').classList.remove("image-clouds")
+            document.getElementById('main-info').classList.remove("image-night-rain")
+            document.getElementById('main-info').classList.remove("image-sun")
+            document.getElementById('main-info').classList.add("image-night")
+        }
+        else 
+        {
+            document.getElementById('main-info').classList.remove("image-clouds")
+            document.getElementById('main-info').classList.remove("image-sun")
+            document.getElementById('main-info').classList.remove("image-night")
+            document.getElementById('main-info').classList.add("image-night-rain")
+        }
+    }
+    else
+    {
+        if(grad >= 11)
+        {
+            document.getElementById('main-info').classList.remove("image-clouds")
+            document.getElementById('main-info').classList.remove("image-night-rain")
+            document.getElementById('main-info').classList.remove("image-night")
+            document.getElementById('main-info').classList.add("image-sun")
+        }
+        else 
+        {
+            document.getElementById('main-info').classList.remove("image-sun")
+            document.getElementById('main-info').classList.remove("image-night-rain")
+            document.getElementById('main-info').classList.remove("image-night")
+            document.getElementById('main-info').classList.add("image-clouds")
+        }
+    }
+}
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-
-$('.day').on('click', 'div', function(){
-    $(this).addClass('active')
-});
