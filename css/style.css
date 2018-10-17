@@ -3,9 +3,45 @@
     padding: 0;
 }
 
+body {
+    background-color: rgb(227, 247, 255);
+}
+
 span {
     align-self: auto;
     font-family: Arial;
+}
+
+.navbar {
+    background-color: rgb(19, 64, 107);
+}
+
+.image-clouds {
+    background-image: url(../images/clouds.jpg);
+    background-color: rgb(63, 130, 192);
+    background-size: 470px 200px;
+    background-repeat: no-repeat;
+}
+
+.image-sun {
+    background-image: url(../images/sun.jpg);
+    background-color: rgb(63, 130, 192);
+    background-size: 470px 200px;
+    background-repeat: no-repeat;
+}
+
+.image-night {
+    background-image: url(../images/night.jpg);
+    background-color: rgb(63, 130, 192);
+    background-size: 470px 200px;
+    background-repeat: no-repeat;
+}
+
+.image-night-rain {
+    background-image: url(../images/night-rain.jpg);
+    background-color: rgb(63, 130, 192);
+    background-size: 470px 200px;
+    background-repeat: no-repeat;
 }
 
 .month {
@@ -13,17 +49,59 @@ span {
     font-weight: bold;
 }
 
-#review {
-    font-size: 24px;
+.week {
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(19, 64, 107);
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px #000;
+    border: 2px solid  rgb(63, 130, 192);
+}
+
+.day {
+    background-color: rgba(63, 130, 192, 0.171);
+}
+
+.day:hover {
+    background-color: rgba(63, 130, 192, 0.288);
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.day:active {
+    border: orange solid 2px;
+}
+
+#extra {
+    padding-left: 30px;
 }
 
 #main-info {
-    font-size: 24px;
+    font-size: 17px;
     height: 200px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 1px #000;
 }
 
-#main-ico, #main-value {
+#main-ico {
+    padding-left: 60px;
     font-size: 96px;
+    color: #fff;
+    text-shadow: 4px 4px 5px #000;
+}
+
+#main-temp {
+    padding-left: 60px;
+    font-size: 88px;
+    color: #fff;
+    text-shadow: 3px 3px 5px #000;
+}
+
+#main-date {
+    padding-left: 150px;
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 2px 2px 1px #000;
 }
 
 #month-ico {
