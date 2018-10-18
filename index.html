@@ -37,41 +37,85 @@
 
         <div class="container my-5 w-75">
             <div class="row align-items-center" id="main-info">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="row" id="main-temp"><i class="wi wi-night-sleet"><span id='main-temp-span'></span></i></div>
                     <div class="row" id="main-date"><span id='main-date-span'></span></div>
                 </div>
-                <div class="col-lg" id="extra">
+                <div class="col-lg-6" id="extra">
                     <div class="row my-2">
-                        <div class="col-lg">
-                            <span>Осадки:</span>
+                        <div class="col time">
+                            <i class="wi wi-time-12"></i>
                         </div>
-                        
-                        <div class="col-lg-5">
-                            <span>1</span>
-                            <span>%</span>
+                        <div class="col time">
+                            <i class="wi wi-time-3"></i>
+                        </div>
+                        <div class="col time">
+                            <i class="wi wi-time-6"></i>
+                        </div>
+                        <div class="col time">
+                            <i class="wi wi-time-9"></i>
+                        </div>
+                        <div class="col time">
+                            <i class="wi wi-time-12"></i>
+                        </div>
+                        <div class="col time">
+                            <i class="wi wi-time-3"></i>
+                        </div>
+                        <div class="col time">
+                            <i class="wi wi-time-6"></i>
+                        </div>
+                        <div class="col time">
+                            <i class="wi wi-time-9"></i>
+                        </div>
+                        <div class="col time mx-auto">
+                            <i class="wi wi-time-12"></i>
                         </div>
                     </div>
                     <div class="row my-2">
-                        <div class="col-lg">
-                            <span>Влажность:</span>
+                        <input id="time" type="range" min="0" max="24" step="1" value="12" list="tickmarks"> 
+                        <datalist id="tickmarks">
+                            <option value="0">
+                            <option value="3">
+                            <option value="6">
+                            <option value="9">
+                            <option value="12">
+                            <option value="15">
+                            <option value="18">
+                            <option value="21">
+                            <option value="24">
+                        </datalist>
+
+                        <div class="row my-1 w-75 mx-auto">
+                            <div class="col-lg">
+                                <span>Осадки:</span>
+                            </div>
+                            
+                            <div class="col-lg-5">
+                                <span>1</span>
+                                <span>%</span>
+                            </div>
                         </div>
-                        
-                        <div class="col-lg-5">
-                            <span>63</span>
-                            <span>%</span>
+                        <div class="row my-1 w-75 mx-auto">
+                            <div class="col-lg">
+                                <span>Влажность:</span>
+                            </div>
+                            
+                            <div class="col-lg-5">
+                                <span>63</span>
+                                <span>%</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row my-2">
-                        <div class="col-lg">
-                            <span>Ветер:</span>
-                        </div>
-                        
-                        <div class="col-lg-5">
-                            <span>13</span>
-                            <span>км/ч</span>
-                        </div>
-                    </div>    
+                        <div class="row my-1 w-75 mx-auto">
+                            <div class="col-lg">
+                                <span>Ветер:</span>
+                            </div>
+                            
+                            <div class="col-lg-5">
+                                <span>13</span>
+                                <span>км/ч</span>
+                            </div>
+                        </div>  
+                    </div>  
                 </div>
             </div>
         </div>
