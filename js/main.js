@@ -1,5 +1,6 @@
 window.onload=render(1,5);
 window.onload=mainWindow();
+
 function daysInMonth(month) {
         return 32 - new Date(new Date().getFullYear(), month, 32).getDate();
     };
@@ -26,12 +27,12 @@ function render(b, e) {
     {
         var d = document.createElement('div');
         d.id = i+'div';
-        d.className = 'container w-50'
+        d.className = 'container w-75'
         document.body.appendChild(d);
         var
         row = document.createElement('div');
         row.id = i + 'row'
-        row.className = 'row align-items-center my-2'
+        row.className = 'row align-items-center'
         document.getElementById(i+'div').appendChild(row)
         for(var j = 1; j <= 7; j++) {
             var id = (i-1)*7 + j;
@@ -42,7 +43,7 @@ function render(b, e) {
                 {
                     var bord = document.createElement('div')
                     bord.id = id
-                    bord.className = 'col'
+                    bord.className = 'col day next'
                     document.getElementById(i + 'row').appendChild(bord)  
                 }
                 break
@@ -50,7 +51,12 @@ function render(b, e) {
 
             var bord = document.createElement('div')
             bord.id = id
-            bord.className = 'col day'
+
+            if (bord.id == curDate.getDate())
+                bord.className = 'col day active'
+            else
+                bord.className = 'col day'
+
             document.getElementById(i + 'row').appendChild(bord)                        
 
             var dataRow = document.createElement('div');
@@ -62,34 +68,28 @@ function render(b, e) {
             span.appendChild(document.createTextNode(`${id}.${curDate.getMonth()+1}.18`))
             dataRow.appendChild(span)
 
-            var icoRow = document.createElement('div');
-            icoRow.id = 'IcoRow' + id
-            icoRow.className = 'row my-2'
+            var InfoRow = document.createElement('div');
+            InfoRow.id = 'InfoRow' + id
+            InfoRow.className = 'row my-2'
 
             var ico = document.createElement('i');
             ico.id = 'month-ico'
             ico.className = 'wi wi-night-sleet mx-auto'
-            icoRow.appendChild(ico)
 
-            var gradRow = document.createElement('div');
-            gradRow.id = 'GradRow' + id
-            gradRow.className = 'row my-3 month'
+            var grad = document.createElement('span');
+            grad.id = 'span1' + id
+            grad.appendChild(document.createTextNode(' ' + getRandomInt(5,15) + '°C'))
 
-            var inGradRow = document.createElement('div');
-            inGradRow.id = 'inGradRow' + id
-            inGradRow.className = 'mx-auto'
-
-            var span1 = document.createElement('span');
-            span1.id = 'span1' + id
-            span1.appendChild(document.createTextNode(getRandomInt(5,15) + '°C'))
-            inGradRow.appendChild(span1)
-
-            gradRow.appendChild(inGradRow)
             bord.appendChild(dataRow)
-            bord.appendChild(icoRow)
-            bord.appendChild(gradRow)
+            bord.appendChild(InfoRow)
+            InfoRow.appendChild(ico)
+            ico.appendChild(grad)
 
-            document.getElementById(id).onclick = function() { mainInfoUpdate(this.id) }
+            document.getElementById(id).onclick = function() { 
+                mainInfoUpdate(this.id)         
+                $('.col.day.active').removeClass('active')  
+                $(this).addClass('active')
+            }
         }
     }          
 }
@@ -107,12 +107,12 @@ function mainInfoUpdate(id)
     changeImage(grad)
 
     document.getElementById('main-date-span').textContent = 
-    `Харьков ${day} ${id}.${new Date().getMonth()+1}.18`
+    `Харьков ${day} ${id}.${new Date().getMonth() + 1}.18`
 }
 
 function getDay(id)
 {
-    switch (id%7)
+    switch (id % 7)
     {
         case 1:
             var day = 'Пн'
