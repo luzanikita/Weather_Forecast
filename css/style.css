@@ -16,8 +16,29 @@ span {
     background-color: rgb(19, 64, 107);
 }
 
-.image {
+.image-clouds {
     background-image: url(../images/clouds.jpg);
+    background-color: rgb(63, 130, 192);
+    background-size: 470px 200px;
+    background-repeat: no-repeat;
+}
+
+.image-sun {
+    background-image: url(../images/sun.jpg);
+    background-color: rgb(63, 130, 192);
+    background-size: 470px 200px;
+    background-repeat: no-repeat;
+}
+
+.image-night {
+    background-image: url(../images/night.jpg);
+    background-color: rgb(63, 130, 192);
+    background-size: 470px 200px;
+    background-repeat: no-repeat;
+}
+
+.image-night-rain {
+    background-image: url(../images/night-rain.jpg);
     background-color: rgb(63, 130, 192);
     background-size: 470px 200px;
     background-repeat: no-repeat;
@@ -52,11 +73,11 @@ span {
 }
 
 #extra {
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 #main-info {
-    font-size: 26px;
+    font-size: 17px;
     height: 200px;
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px 1px #000;
