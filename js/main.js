@@ -1,3 +1,4 @@
+var arr = dataGenerator(3, 10)
 window.onload=render(1,5);
 window.onload=mainWindow();
 
@@ -8,16 +9,26 @@ function daysInMonth(month) {
 function mainWindow()
 {
     var id = new Date().getDate()
+
     var grad = document.getElementById('span1' + id).
     textContent.substring(0, document.getElementById('span1' + id).textContent.length - 2)
-    changeImage(grad)
-    document.getElementById('main-info')
+
     var day = getDay(id)
-    document.getElementById('main-temp-span').textContent = 
-    " " + document.getElementById('span1' + id).textContent
+
+    document.getElementById('time').value = new Date().getHours();
+
+    document.getElementById('main-temp-span').textContent = ` ${arr[id - 1][document.getElementById('time').value]}°C`
 
     document.getElementById('main-date-span').textContent = 
         `Харьков ${day} ${id}.${new Date().getMonth()+1}.18`
+
+    document.getElementById('time').oninput = function() {
+        document.getElementById('main-temp-span').textContent = ` ${arr[id - 1][this.value]}°C`
+        changeImage(document.getElementById('main-temp-span').textContent.trim().
+            substring(0, document.getElementById('main-temp-span').textContent.trim().length - 2));
+    }
+
+    changeImage(grad)
 }
 
 
@@ -37,7 +48,7 @@ function render(b, e) {
         for(var j = 1; j <= 7; j++) {
             var id = (i-1)*7 + j;
 
-            if(id > daysInMonth(new Date().getMonth())) 
+            if(id > daysInMonth(curDate.getMonth())) 
             {
                 for(; j<= 7; j++)
                 {
@@ -78,7 +89,7 @@ function render(b, e) {
 
             var grad = document.createElement('span');
             grad.id = 'span1' + id
-            grad.appendChild(document.createTextNode(' ' + getRandomInt(5,15) + '°C'))
+            grad.appendChild(document.createTextNode(` ${arr[id - 1][curDate.getHours()]}°C`))
 
             bord.appendChild(dataRow)
             bord.appendChild(InfoRow)
@@ -101,8 +112,7 @@ function mainInfoUpdate(id)
 
     var day = getDay(id)
                 
-    var grad = document.getElementById('span1' + id).
-    textContent.substring(0, document.getElementById('span1' + id).textContent.length - 2)
+    var grad = arr[id - 1][curDate.getHours()]
 
     changeImage(grad)
 
@@ -141,8 +151,8 @@ function getDay(id)
 
 function changeImage(grad)
 {
-
-    if(new Date().getHours() >= 17)
+    var currHour = document.getElementById('time').value;
+    if(currHour <= 4 ||  17 <= currHour)
     {
         if(grad >= 11)
         {
@@ -182,3 +192,29 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function dataGenerator(min, max)
+{
+    var arr = [];
+    for(var i = 0; i < 31; i++)
+    {
+        arr.push([]);
+        for(var j = 0, minVal = min, maxVal = max; j < 25; j++)
+        {
+            arr[i].push(getRandomInt(minVal, maxVal));
+            if(j < 14)
+            {
+                minVal++;
+                if(j < 12)
+                {
+                    maxVal++;
+                }
+            }
+            else if(j > 17)
+            {
+                minVal -= 2;
+                maxVal -= 2 ;
+            }
+        }
+    }
+    return arr;
+}
