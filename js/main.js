@@ -1,6 +1,7 @@
-var arr = dataGenerator(3, 10)
+var arr = dataGenerator(3, 100)
 window.onload=render(1,5);
 window.onload=mainWindow();
+var selectedDayId = new Date().getDate();
 
 function daysInMonth(month) {
         return 32 - new Date(new Date().getFullYear(), month, 32).getDate();
@@ -23,7 +24,7 @@ function mainWindow()
         `Харьков ${day} ${id}.${new Date().getMonth()+1}.18`
 
     document.getElementById('time').oninput = function() {
-        document.getElementById('main-temp-span').textContent = ` ${arr[id - 1][this.value]}°C`
+        document.getElementById('main-temp-span').textContent = ` ${arr[selectedDayId - 1][this.value]}°C`
         changeImage(document.getElementById('main-temp-span').textContent.trim().
             substring(0, document.getElementById('main-temp-span').textContent.trim().length - 2));
     }
@@ -120,7 +121,8 @@ function render(b, e) {
             ico.appendChild(grad)
 
             document.getElementById(id).onclick = function() { 
-                mainInfoUpdate(this.id, curDate)         
+                mainInfoUpdate(this.id)
+                selectedDayId = this.id  
                 $('.col.day.active').removeClass('active')  
                 $(this).addClass('active')
                 $("#time").value = 12
@@ -131,17 +133,17 @@ function render(b, e) {
 
 function mainInfoUpdate(id, curDate)
 {
-    document.getElementById('main-temp-span').textContent = 
-    " " + document.getElementById('span1' + id).textContent
+    var curDate = new Date()
+    document.getElementById('main-temp-span').textContent = `${arr[id - 1][document.getElementById('time').value]}`
 
     var day = getDay(id)
                 
-    var grad = arr[id - 1][curDate.getHours()]
+    var grad = arr[id - 1][document.getElementById('time').value]
 
     changeImage(grad)
 
     document.getElementById('main-date-span').textContent = 
-    `Харьков ${day} ${id}.${new Date().getMonth() + 1}.18`
+    `Харьков ${day} ${id}.${curDate.getMonth() + 1}.18`
 }
 
 function getDay(id)

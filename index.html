@@ -27,9 +27,19 @@
                     <i class="navbar-brand wi wi-day-cloudy"><span> Прогноз Погоды</span></i>
                 </div>
                 <div class="col-lg-8 col-lg-offset-4">
+                
                     <form class="form-inline mt-2 mt-md-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Город" aria-label="Search">
-                        <button class="btn btn-warning my-2 my-sm-0" type="submit">
+                        <input list="cities" name="city">
+                        <datalist id="cities">
+                            <option value="Харьков">
+                            <option value="Киев">
+                            <option value="Антрацит">
+                            <option value="Балаклея">
+                            <option value="Винница">
+                            <option value="Горное">                          
+                        </datalist>
+                        
+                        <button class="btn btn-warning mx-2 my-2 my-sm-0" type="submit">
                             Выбрать
                         </button>
                     </form>

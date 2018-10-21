@@ -92,6 +92,13 @@ span {
     text-shadow: 0px 0px 0px rgba(17, 34, 51, 0.192);
 }
 
+#city {
+    text-align: center;
+    width: 40px;
+    height: 35px;
+    border-radius: 5px;
+}
+
 #date {
     width: 225px;
     align-content: center;
