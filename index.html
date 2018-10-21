@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="libs/weather-icons-master/css/weather-icons-wind.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Weather Forecast</title>
 </head>
@@ -23,55 +23,58 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-dark mb-4 xxx">
             <div class="container w-75">
-                <i class="navbar-brand wi wi-day-cloudy"><span> Прогноз Погоды</span></i>
-                <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Город" aria-label="Search">
-                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
-                        Поиск
-                    </button>
-                </form>
+                <div class="col-lg-4">
+                    <i class="navbar-brand wi wi-day-cloudy"><span> Прогноз Погоды</span></i>
+                </div>
+                <div class="col-lg-8 col-lg-offset-4">
+                    <form class="form-inline mt-2 mt-md-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Город" aria-label="Search">
+                        <button class="btn btn-warning my-2 my-sm-0" type="submit">
+                            Выбрать
+                        </button>
+                    </form>
                 </div>
             </div>
           </nav>
         </header>
 
-        <div class="container my-5 w-75">
+        <div class="container my-3 w-75">
             <div class="row align-items-center" id="main-info">
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <div class="row" id="main-temp"><i class="wi wi-night-sleet"><span id='main-temp-span'></span></i></div>
                     <div class="row" id="main-date"><span id='main-date-span'></span></div>
                 </div>
                 <div class="col-lg-6" id="extra">
-                    <div class="row my-2">
-                        <div class="col time">
-                            <i class="wi wi-time-12"></i>
-                        </div>
-                        <div class="col time">
-                            <i class="wi wi-time-3"></i>
-                        </div>
-                        <div class="col time">
-                            <i class="wi wi-time-6"></i>
-                        </div>
-                        <div class="col time">
-                            <i class="wi wi-time-9"></i>
-                        </div>
-                        <div class="col time">
-                            <i class="wi wi-time-12"></i>
-                        </div>
-                        <div class="col time">
-                            <i class="wi wi-time-3"></i>
-                        </div>
-                        <div class="col time">
-                            <i class="wi wi-time-6"></i>
-                        </div>
-                        <div class="col time">
-                            <i class="wi wi-time-9"></i>
-                        </div>
+                    <div class="row my-3">
                         <div class="col time mx-auto">
-                            <i class="wi wi-time-12"></i>
+                            <span>00:00</span>
+                        </div>
+                        <div class="col time  mx-auto">
+                            <span>03:00</span>
+                        </div>
+                        <div class="col time  mx-auto">
+                            <span>06:00</span>
+                        </div>
+                        <div class="col time  mx-auto">
+                            <span>09:00</span>
+                        </div>
+                        <div class="col time  mx-auto">
+                            <span>12:00</span>
+                        </div>
+                        <div class="col time  mx-auto">
+                            <span>15:00</span>
+                        </div>
+                        <div class="col time  mx-auto">
+                            <span>18:00</span>
+                        </div>
+                        <div class="col time  mx-auto">
+                            <span>21:00</span>
+                        </div>
+                        <div class="col time  mx-auto">
+                            <span>24:00</span>
                         </div>
                     </div>
-                    <div class="row my-2">
+                    <div class="row my-3">
                         <input id="time" type="range" min="0" max="24" step="1" value="12" list="tickmarks"> 
                         <datalist id="tickmarks">
                             <option value="0">
@@ -84,47 +87,53 @@
                             <option value="21">
                             <option value="24">
                         </datalist>
-
-                        <div class="row my-1 w-75 mx-auto">
-                            <div class="col-lg">
-                                <span>Осадки:</span>
-                            </div>
-                            
-                            <div class="col-lg-5">
-                                <span>1</span>
-                                <span>%</span>
-                            </div>
-                        </div>
-                        <div class="row my-1 w-75 mx-auto">
-                            <div class="col-lg">
-                                <span>Влажность:</span>
-                            </div>
-                            
-                            <div class="col-lg-5">
-                                <span>63</span>
-                                <span>%</span>
-                            </div>
-                        </div>
-                        <div class="row my-1 w-75 mx-auto">
-                            <div class="col-lg">
-                                <span>Ветер:</span>
-                            </div>
-                            
-                            <div class="col-lg-5">
-                                <span>13</span>
-                                <span>км/ч</span>
-                            </div>
-                        </div>  
                     </div>  
+                    <div class="row my-3 mx-auto"></div>
+                    <div class="row add mx-auto">
+                        <div class="col-lg-4">
+                            <div class="row my-1 mx-auto">
+                                <i class="wi wi-umbrella mx-auto"> <span>Осадки: </span></i>
+                            </div>
+                            <div class="row my-1 mx-auto">
+                                <span class="mx-auto">1 %</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="row my-1 mx-auto">
+                                <i class="wi wi-humidity mx-auto"> <span>Влажность: </span></i>
+                            </div>
+                            <div class="row my-1 mx-auto">
+                                <span class="mx-auto">63 %</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="row my-1 mx-auto">
+                                <i class="wi wi-strong-wind mx-auto"> <span>Ветер: </span></i>
+                            </div>
+                            <div class="row my-1 mx-auto">
+                                <span class="mx-auto">13 км/ч</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- <div class="container w-50 my-5 month-but">
-            <button class="btn btn-outline-warning my-2 my-sm-0" type="button">
-                Отркыть погоду на месяц
-            </button>
-        </div> -->
+        <div class="container w-75 my-4 month-but">
+            <div class="mx-auto" id="date">
+                    <button class="btn btn-warning my-2 my-sm-0" data-toggle="tooltip" title="Предыдущий месяц" type="button" onclick="changeDate(0)">
+                        <
+                    </button>
+                    <button class="btn btn-warning my-2 my-sm-0" data-toggle="tooltip" title="Сегодня" type="button" onclick="setCurDate()">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </button>
+                    <input type="number" data-toggle="tooltip" title="Месяц" min="1" max="12" id="date-month">
+                    <input type="number" data-toggle="tooltip" title="Год"size="2" min="1900" max="2100" id="date-year">
+                    <button class="btn btn-warning my-2 my-sm-0" data-toggle="tooltip" title="Следующий месяц"type="button" onclick="changeDate(1)">
+                        >
+                    </button>
+            </div>
+        </div>
         <div class="container w-75">
             <div class="row">
                 <dir class="col week"><span>Пн</span></dir>

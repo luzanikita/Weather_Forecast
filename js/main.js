@@ -31,9 +31,32 @@ function mainWindow()
     changeImage(grad)
 }
 
+function setCurDate() {
+    var curDate = new Date()
+    document.getElementById('date-month').value = 1 + curDate.getMonth();
+    document.getElementById('date-year').value = 1900 + curDate.getYear();
+}
+
+function changeDate(direction) {
+    var value = document.getElementById('date-month').value
+
+    if (direction == 1) {
+        document.getElementById('date-month').value = 1 + (12 + value) % 12
+        if (document.getElementById('date-month').value == 1)
+            document.getElementById('date-year').value = parseInt(document.getElementById('date-year').value) + 1
+    }
+    else {
+        document.getElementById('date-month').value = 1 + (12 + value - 2) % 12
+        if (document.getElementById('date-month').value == 12)
+            document.getElementById('date-year').value = parseInt(document.getElementById('date-year').value) - 1
+    }
+}
 
 function render(b, e) {
     var curDate = new Date()
+
+    setCurDate()
+
     for(var i = b; i <= e; i++)
     {
         var d = document.createElement('div');
@@ -97,15 +120,16 @@ function render(b, e) {
             ico.appendChild(grad)
 
             document.getElementById(id).onclick = function() { 
-                mainInfoUpdate(this.id)         
+                mainInfoUpdate(this.id, curDate)         
                 $('.col.day.active').removeClass('active')  
                 $(this).addClass('active')
+                $("#time").value = 12
             }
         }
     }          
 }
 
-function mainInfoUpdate(id)
+function mainInfoUpdate(id, curDate)
 {
     document.getElementById('main-temp-span').textContent = 
     " " + document.getElementById('span1' + id).textContent
