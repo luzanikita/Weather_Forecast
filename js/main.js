@@ -1,4 +1,4 @@
-var arr = dataGenerator(3, 100)
+var arr = dataGenerator(3, 10)
 window.onload=render(1,5);
 window.onload=mainWindow();
 var selectedDayId = new Date().getDate();
