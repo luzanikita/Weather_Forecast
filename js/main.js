@@ -134,7 +134,7 @@ function render(b, e) {
 function mainInfoUpdate(id, curDate)
 {
     var curDate = new Date()
-    document.getElementById('main-temp-span').textContent = `${arr[id - 1][document.getElementById('time').value]}`
+    document.getElementById('main-temp-span').textContent = ` ${arr[id - 1][document.getElementById('time').value]}°C`
 
     var day = getDay(id)
                 
