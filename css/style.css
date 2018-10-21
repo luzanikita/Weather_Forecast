@@ -18,34 +18,34 @@ span {
 
 .image-clouds {
     background-image: url(../images/clouds.jpg);
-    background-color: rgb(63, 130, 192);
+    background-color: rgba(63, 130, 192, 0.404);
     background-size: 470px 200px;
     background-repeat: no-repeat;
 }
 
 .image-sun {
     background-image: url(../images/sun.jpg);
-    background-color: rgb(63, 130, 192);
+    background-color: rgba(63, 130, 192, 0.404);
     background-size: 470px 200px;
     background-repeat: no-repeat;
 }
 
 .image-night {
     background-image: url(../images/night.jpg);
-    background-color: rgb(63, 130, 192);
+    background-color: rgba(63, 130, 192, 0.404);
     background-size: 470px 200px;
     background-repeat: no-repeat;
 }
 
 .image-night-rain {
     background-image: url(../images/night-rain.jpg);
-    background-color: rgb(63, 130, 192);
+    background-color: rgba(63, 130, 192, 0.404);
     background-size: 470px 200px;
     background-repeat: no-repeat;
 }
 
 .month {
-    font-size: 18px;
+    font-size: 21px;
     font-weight: bold;
 }
 
@@ -56,10 +56,17 @@ span {
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px 1px #000;
     border: 2px solid  rgb(63, 130, 192);
+    margin: 2px;
 }
 
 .day {
     background-color: rgba(63, 130, 192, 0.171);
+    padding: 0;
+    margin: 3px;
+}
+
+.next {
+    background-color: rgb(227, 247, 255);
 }
 
 .day:hover {
@@ -68,12 +75,25 @@ span {
     cursor: pointer;
 }
 
-.day:active {
+.active {
     border: orange solid 2px;
+}
+
+.time {
+    float: left;
+    padding: 0px;
+    font-size: 24px;
+}
+
+#time {
+    margin-left: 4px;
+    width: 427px;
 }
 
 #extra {
     padding-left: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 #main-info {
@@ -105,5 +125,5 @@ span {
 }
 
 #month-ico {
-    font-size: 48px;
+    font-size: 32px;
 }
