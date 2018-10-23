@@ -28,6 +28,7 @@ li {
 
 #btn-week:hover, #btn-month:hover {
     color: rgba(255, 255, 255, 0.76);
+    transition: 0.25s
 }
 
 .navbar {
