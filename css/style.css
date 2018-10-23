@@ -21,6 +21,10 @@ li {
     font-size: 16px;
 }
 
+.selected {
+    border-bottom: 3px solid orange;
+}
+
 #btn-week:hover, #btn-month:hover {
     color: rgba(255, 255, 255, 0.76);
 }
@@ -97,7 +101,7 @@ li {
 }
 
 .active {
-    border: orange solid 2px;
+    border: orange solid 3px;
 }
 
 .time {
