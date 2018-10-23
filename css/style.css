@@ -12,6 +12,19 @@ span {
     font-family: Arial;
 }
 
+li {
+    width: 70px;
+    height: 40px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-top: 10px;
+    font-size: 16px;
+}
+
+#btn-week:hover, #btn-month:hover {
+    color: rgba(255, 255, 255, 0.76);
+}
+
 .navbar {
     background-color: rgb(19, 64, 107);
 }
@@ -51,15 +64,17 @@ span {
 .month {
     font-size: 21px;
     font-weight: bold;
+    border-radius: 2px;
 }
 
 .week {
     font-weight: bold;
     text-align: center;
-    background-color: rgb(19, 64, 107);
+    background-color: rgb(64, 117, 167);
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px 1px #000;
-    border: 2px solid  rgb(63, 130, 192);
+    border: 2px solid  rgb(43, 104, 161);
+    border-radius: 2px;
     margin: 2px;
 }
 
@@ -68,6 +83,7 @@ span {
     padding: 0;
     margin: 3px;
     color: rgb(12, 41, 68);
+    border-radius: 2px;
 }
 
 .next {
@@ -92,11 +108,27 @@ span {
     text-shadow: 0px 0px 0px rgba(17, 34, 51, 0.192);
 }
 
+.control {
+    background-color: rgba(63, 130, 192, 0.431);
+}
+
+.control:hover {
+    background-color: rgba(63, 130, 192, 0.342);
+}
+
 #city {
     text-align: center;
     width: 40px;
     height: 35px;
     border-radius: 5px;
+}
+
+#btn-month {
+    color: #fff;
+}
+
+#btn-week {
+    color: #fff;
 }
 
 #date {
@@ -140,6 +172,7 @@ span {
     height: 200px;
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px 1px #000;
+    border-radius: 2px;
 }
 
 #main-ico {
