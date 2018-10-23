@@ -128,6 +128,16 @@ function render(b, e) {
                 $("#time").value = 12
             }
         }
+
+        document.getElementById('btn-week').onclick = function() {   
+            document.getElementById('btn-month').classList.remove('selected')
+            this.classList.add('selected')
+        }
+
+        document.getElementById('btn-month').onclick = function() {   
+            document.getElementById('btn-week').classList.remove('selected')
+            this.classList.add('selected')
+        }
     }          
 }
 
