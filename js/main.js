@@ -1,12 +1,8 @@
 var arr = dataGenerator(3, 10)
-var november = november(0, 4)
-window.onload=monthRender(1,5);
-window.onload=mainWindow();
+genMonth(1,5);
+mainWindow();
+showWeek();
 var selectedDayId = new Date().getDate();
-
-document.body.scrollTop = document.documentElement.scrollTop = 0;
-
-
 
 function daysInMonth(month) {
         return 32 - new Date(new Date().getFullYear(), month, 32).getDate();
@@ -58,7 +54,7 @@ function changeDate(direction) {
     }
 }
 
-function monthRender(b, e) {
+function genMonth(b, e) {
     var curDate = new Date()
 
     setCurDate()
@@ -82,7 +78,7 @@ function monthRender(b, e) {
                 for(; j<= 7; j++)
                 {
                     var bord = document.createElement('div')
-                    bord.id = id
+                    bord.id = (i-1)*7 + j;
                     bord.className = 'col day next'
                     document.getElementById(i + 'row').appendChild(bord)  
                 }
@@ -118,7 +114,7 @@ function monthRender(b, e) {
 
             var grad = document.createElement('span');
             grad.id = 'span1' + id
-            grad.appendChild(document.createTextNode(` ${arr[id - 1][12]}°C`))
+            grad.appendChild(document.createTextNode(` ${arr[id - 1][curDate.getHours()]}°C`))
 
             bord.appendChild(dataRow)
             bord.appendChild(InfoRow)
@@ -131,16 +127,81 @@ function monthRender(b, e) {
                 $('.col.day.active').removeClass('active')  
                 $(this).addClass('active')
                 $("#time").value = 12
-                document.body.scrollTop = document.documentElement.scrollTop = 0;
             }
+            document.getElementById(id).style.display = 'none'
         }
-    }          
+    }
+    document.getElementById('btn-week').onclick = function() {   
+        document.getElementById('btn-month').classList.remove('selected');
+        this.classList.add('selected');
+        clear();
+        showWeek();
+    }
+
+    document.getElementById('btn-month').onclick = function() {   
+        document.getElementById('btn-week').classList.remove('selected');
+        this.classList.add('selected');
+        clear();
+        showMonth();
+    }
 }
 
-function changeMonth()
+function showWeek()
 {
-    for(var i = 1; i < 6; i++){
-        document.getElementById(`${i}div`).re
+    var curDate = new Date().getDate();
+    var week = Math.floor(curDate/7) + 1;
+
+    for(var j = week; j <= week + 1; j++)
+    {
+        for(var i = (j - 1)*7 + 1, k = 0; i <= j*7; i++, k++)
+        {
+            if(i < curDate)
+            {
+                var bord = document.createElement('div')
+                bord.className = 'col day next needRemove'
+                document.getElementById(j + 'row').appendChild(bord)
+            }
+            else
+            {
+                document.getElementById(j + 'row').appendChild(document.getElementById(i))
+                document.getElementById(i).style.display = 'block'
+            }
+        }
+    }
+    // var needWeeks = curDate%7==0?1:2;
+    // for(var j = 1; j < )
+    // for(var i = curDate - curDate%7; curDate + 7; i++)
+    // {
+    //     if(i > daysInMonth(curDate.getMonth())) 
+    //         {
+    //             for(; j<= 7; j++)
+    //             {
+    //                 var bord = document.createElement('div')
+    //                 bord.id = i
+    //                 bord.className = 'col day next'
+    //                 document.getElementById(i + 'row').appendChild(bord)  
+    //             }
+    //             break
+    //         }
+    // }
+}
+
+function showMonth()
+{
+    var curDate = new Date();
+    for(var  i = 1; i <= daysInMonth(curDate.getMonth()) + 4; i++)
+    {
+        document.getElementById(i).style.display = 'block'
+    }
+}
+
+function clear()
+{
+    var curDate = new Date();
+    $('.needRemove').remove()
+    for(var  i = 1; i <= daysInMonth(curDate.getMonth()) + 4; i++)
+    {
+        document.getElementById(i).style.display = 'none'
     }
 }
 
@@ -257,31 +318,3 @@ function dataGenerator(min, max)
     }
     return arr;
 }
-
-function november(min, max)
-{
-    var arr = [];
-    for(var i = 0; i < 31; i++)
-    {
-        arr.push([]);
-        for(var j = 0, minVal = min, maxVal = max; j < 25; j++)
-        {
-            arr[i].push(getRandomInt(minVal, maxVal));
-            if(j < 14)
-            {
-                minVal++;
-                if(j < 12)
-                {
-                    maxVal++;
-                }
-            }
-            else if(j > 17)
-            {
-                minVal -= 2;
-                maxVal -= 2 ;
-            }
-        }
-    }
-    return arr;
-}
-
