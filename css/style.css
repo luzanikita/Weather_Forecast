@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+html {
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
 body {
     background-color: rgb(227, 247, 255);
 }
@@ -12,61 +17,91 @@ span {
     font-family: Arial;
 }
 
+li {
+    width: 70px;
+    height: 40px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-top: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+
+.selected {
+    border-bottom: 3px solid orange;
+}
+
+#btn-month, #btn-week {
+    color: #fff;
+}
+
+#btn-week:hover, #btn-month:hover {
+    color: rgba(255, 255, 255, 0.76);
+    transition: 0.25s;
+    cursor: pointer;
+}
+
 .navbar {
     background-color: rgb(19, 64, 107);
 }
 
 .image-clouds {
     background-image: url(../images/clouds.jpg);
-    background-color: rgba(63, 130, 192, 0.404);
+    background-color: rgba(63, 130, 192, 0.288);
     background-size: 470px 200px;
     background-repeat: no-repeat;
+    transition: 0.5s;
 }
 
 .image-sun {
     background-image: url(../images/sun.jpg);
-    background-color: rgba(63, 130, 192, 0.404);
+    background-color: rgba(63, 130, 192, 0.288);
     background-size: 470px 200px;
     background-repeat: no-repeat;
+    transition: 0.5s;
 }
 
 .image-night {
     background-image: url(../images/night.jpg);
-    background-color: rgba(63, 130, 192, 0.404);
+    background-color: rgba(63, 130, 192, 0.288);
     background-size: 470px 200px;
     background-repeat: no-repeat;
+    transition: 0.5s;
 }
 
 .image-night-rain {
     background-image: url(../images/night-rain.jpg);
-    background-color: rgba(63, 130, 192, 0.404);
+    background-color: rgba(63, 130, 192, 0.288);
     background-size: 470px 200px;
     background-repeat: no-repeat;
+    transition: 0.5s;
 }
 
 .month {
     font-size: 21px;
     font-weight: bold;
+    border-radius: 2px;
 }
 
 .week {
     font-weight: bold;
     text-align: center;
-    background-color: rgb(19, 64, 107);
+    background-color: rgb(64, 117, 167);
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px 1px #000;
-    border: 2px solid  rgb(63, 130, 192);
+    border: 2px solid  rgb(43, 104, 161);
+    border-radius: 2px;
     margin: 2px;
 }
 
 .day {
     background-color: rgba(63, 130, 192, 0.171);
     padding: 0;
-    margin: 3px;
-}
-
-.next {
-    background-color: rgb(227, 247, 255);
+    margin: 2px;
+    color: rgb(12, 41, 68);
+    border-radius: 2px;
 }
 
 .day:hover {
@@ -75,23 +110,70 @@ span {
     cursor: pointer;
 }
 
+.next {
+    background-color: rgb(227, 247, 255);
+}
+
 .active {
-    border: orange solid 2px;
+    border: orange solid 3px;
+    margin: -1px;
 }
 
 .time {
-    float: left;
+    margin-left: -10px;
     padding: 0px;
-    font-size: 24px;
+    font-size: 16px;
+    color: rgba(22, 61, 97, 0.63);
+    text-shadow: 0px 0px 0px rgba(17, 34, 51, 0.192);
+}
+
+.control {
+    background-color: rgba(63, 130, 192, 0.431);
+}
+
+.control:hover {
+    background-color: rgba(63, 130, 192, 0.342);
+}
+
+#city {
+    text-align: center;
+    width: 40px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+#date {
+    width: 225px;
+    align-content: center;
+}
+
+#date-month {
+    text-align: center;
+    width: 40px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+#date-year {
+    text-align: center;
+    width: 60px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.add {
+    font-size: 20px;
+    color: rgb(18, 59, 97);;
+    text-shadow: 0px 0px 0px #000;
 }
 
 #time {
-    margin-left: 4px;
-    width: 427px;
+    margin-left: 15px;
+    width: 466px;
 }
 
 #extra {
-    padding-left: 30px;
+    margin-left: 60px;
     padding-top: 15px;
     padding-bottom: 15px;
 }
@@ -101,6 +183,7 @@ span {
     height: 200px;
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px 1px #000;
+    border-radius: 2px;
 }
 
 #main-ico {
@@ -126,4 +209,8 @@ span {
 
 #month-ico {
     font-size: 32px;
+}
+
+#navbar-brand {
+    cursor: pointer;
 }
