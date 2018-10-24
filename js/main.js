@@ -1,7 +1,12 @@
-var arr = dataGenerator(3, 100)
-window.onload=render(1,5);
+var arr = dataGenerator(3, 10)
+var november = november(0, 4)
+window.onload=monthRender(1,5);
 window.onload=mainWindow();
 var selectedDayId = new Date().getDate();
+
+document.body.scrollTop = document.documentElement.scrollTop = 0;
+
+
 
 function daysInMonth(month) {
         return 32 - new Date(new Date().getFullYear(), month, 32).getDate();
@@ -32,9 +37,32 @@ function mainWindow()
     changeImage(grad)
 }
 
-
-function render(b, e) {
+function setCurDate() {
     var curDate = new Date()
+    document.getElementById('date-month').value = 1 + curDate.getMonth();
+    document.getElementById('date-year').value = 1900 + curDate.getYear();
+}
+
+function changeDate(direction) {
+    var value = document.getElementById('date-month').value
+
+    if (direction == 1) {
+        document.getElementById('date-month').value = 1 + (12 + value) % 12
+        if (document.getElementById('date-month').value == 1)
+            document.getElementById('date-year').value = parseInt(document.getElementById('date-year').value) + 1
+    }
+    else {
+        document.getElementById('date-month').value = 1 + (12 + value - 2) % 12
+        if (document.getElementById('date-month').value == 12)
+            document.getElementById('date-year').value = parseInt(document.getElementById('date-year').value) - 1
+    }
+}
+
+function monthRender(b, e) {
+    var curDate = new Date()
+
+    setCurDate()
+
     for(var i = b; i <= e; i++)
     {
         var d = document.createElement('div');
@@ -90,7 +118,7 @@ function render(b, e) {
 
             var grad = document.createElement('span');
             grad.id = 'span1' + id
-            grad.appendChild(document.createTextNode(` ${arr[id - 1][curDate.getHours()]}°C`))
+            grad.appendChild(document.createTextNode(` ${arr[id - 1][12]}°C`))
 
             bord.appendChild(dataRow)
             bord.appendChild(InfoRow)
@@ -102,15 +130,24 @@ function render(b, e) {
                 selectedDayId = this.id  
                 $('.col.day.active').removeClass('active')  
                 $(this).addClass('active')
+                $("#time").value = 12
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
             }
         }
     }          
 }
 
-function mainInfoUpdate(id)
+function changeMonth()
+{
+    for(var i = 1; i < 6; i++){
+        document.getElementById(`${i}div`).re
+    }
+}
+
+function mainInfoUpdate(id, curDate)
 {
     var curDate = new Date()
-    document.getElementById('main-temp-span').textContent = `${arr[id - 1][document.getElementById('time').value]}`
+    document.getElementById('main-temp-span').textContent = ` ${arr[id - 1][document.getElementById('time').value]}°C`
 
     var day = getDay(id)
                 
@@ -220,3 +257,31 @@ function dataGenerator(min, max)
     }
     return arr;
 }
+
+function november(min, max)
+{
+    var arr = [];
+    for(var i = 0; i < 31; i++)
+    {
+        arr.push([]);
+        for(var j = 0, minVal = min, maxVal = max; j < 25; j++)
+        {
+            arr[i].push(getRandomInt(minVal, maxVal));
+            if(j < 14)
+            {
+                minVal++;
+                if(j < 12)
+                {
+                    maxVal++;
+                }
+            }
+            else if(j > 17)
+            {
+                minVal -= 2;
+                maxVal -= 2 ;
+            }
+        }
+    }
+    return arr;
+}
+
