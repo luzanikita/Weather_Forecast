@@ -168,22 +168,6 @@ function showWeek()
             }
         }
     }
-    // var needWeeks = curDate%7==0?1:2;
-    // for(var j = 1; j < )
-    // for(var i = curDate - curDate%7; curDate + 7; i++)
-    // {
-    //     if(i > daysInMonth(curDate.getMonth())) 
-    //         {
-    //             for(; j<= 7; j++)
-    //             {
-    //                 var bord = document.createElement('div')
-    //                 bord.id = i
-    //                 bord.className = 'col day next'
-    //                 document.getElementById(i + 'row').appendChild(bord)  
-    //             }
-    //             break
-    //         }
-    // }
 }
 
 function showMonth()
