@@ -45,6 +45,8 @@ li {
 
 .navbar {
     background-color: rgb(19, 64, 107);
+    margin-left: -0.2%;
+    margin-right: -0.2%;
 }
 
 .image-clouds {

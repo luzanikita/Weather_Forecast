@@ -1,8 +1,8 @@
+var selectedDayId = new Date().getDate();
 var arr = dataGenerator(3, 10)
 genMonth(1,5);
 mainWindow();
 showWeek();
-var selectedDayId = new Date().getDate();
 
 function daysInMonth(month) {
         return 32 - new Date(new Date().getFullYear(), month, 32).getDate();
@@ -31,6 +31,8 @@ function mainWindow()
     }
 
     changeImage(grad)
+
+    document.getElementById('main-wi').classList.add(`${document.getElementById('day-ico' + selectedDayId).classList[1]}`)
 }
 
 function setCurDate() {
@@ -55,6 +57,7 @@ function changeDate(direction) {
 }
 
 function genMonth(b, e) {
+
     var curDate = new Date()
 
     setCurDate()
@@ -109,8 +112,9 @@ function genMonth(b, e) {
             InfoRow.className = 'row my-2'
 
             var ico = document.createElement('i');
-            ico.id = 'month-ico'
-            ico.className = 'wi wi-night-sleet mx-auto'
+            ico.id = 'day-ico' + id
+            ico.className = `wi ${randPict()} mx-auto`
+            ico.style.fontSize = "32px";
 
             var grad = document.createElement('span');
             grad.id = 'span1' + id
@@ -122,18 +126,23 @@ function genMonth(b, e) {
             ico.appendChild(grad)
 
             document.getElementById(id).onclick = function() { 
-                mainInfoUpdate(this.id)
                 selectedDayId = this.id  
+                mainInfoUpdate(this.id)
                 $('.col.day.active').removeClass('active')  
                 $(this).addClass('active')
                 $("#time").value = 12
+                document.body.scrollTop = document.documentElement.scrollTop = 0;
             }
             document.getElementById(id).style.display = 'none'
         }
     }
-    document.getElementById('btn-week').onclick = function() {   
+    document.getElementById('btn-week').onclick = function() {
         document.getElementById('btn-month').classList.remove('selected');
         this.classList.add('selected');
+        $('.col.day.active').removeClass('active')
+        selectedDayId = curDate.getDate()
+        document.getElementById(selectedDayId).classList.add('active')
+        mainInfoUpdate(selectedDayId)
         clear();
         showWeek();
     }
@@ -146,8 +155,15 @@ function genMonth(b, e) {
     }
 }
 
+function randPict()
+{
+    var temp = ["wi-day-sunny","wi-day-cloudy","wi-day-cloudy-windy","wi-day-rain"]
+    return temp[getRandomInt(0,3)];
+}
+
 function showWeek()
 {
+    document.getElementById('date').style.display = 'none'
     var curDate = new Date().getDate();
     var week = Math.floor(curDate/7) + 1;
 
@@ -172,6 +188,7 @@ function showWeek()
 
 function showMonth()
 {
+    document.getElementById('date').style.display = 'block'
     var curDate = new Date();
     for(var  i = 1; i <= daysInMonth(curDate.getMonth()) + 4; i++)
     {
@@ -189,7 +206,7 @@ function clear()
     }
 }
 
-function mainInfoUpdate(id, curDate)
+function mainInfoUpdate(id)
 {
     var curDate = new Date()
     document.getElementById('main-temp-span').textContent = ` ${arr[id - 1][document.getElementById('time').value]}°C`
@@ -202,6 +219,11 @@ function mainInfoUpdate(id, curDate)
 
     document.getElementById('main-date-span').textContent = 
     `Харьков ${day} ${id}.${curDate.getMonth() + 1}.18`
+
+    console.log(document.getElementById('day-ico' + selectedDayId).classList[1])
+
+    document.getElementById('main-wi').classList.remove(document.getElementById('main-wi').classList[1])
+    document.getElementById('main-wi').classList.add(`${document.getElementById('day-ico' + selectedDayId).classList[1]}`)
 }
 
 function getDay(id)
