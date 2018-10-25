@@ -24,14 +24,14 @@
         <nav class="navbar navbar-expand-md navbar-dark mb-4 xxx">
             <div class="container w-75">
                 <div class="col-lg-3">
-                    <i class="navbar-brand wi wi-day-cloudy"><span><b> Прогноз Погоды</b></span></i>
+                    <i class="navbar-brand wi wi-day-cloudy" id="navbar-brand" onclick="history.go(0)"><span><b> Прогноз Погоды</b></span></i>
                 </div>
                 <ul class="navbar-nav">
-                    <li class="nav-item" id="btn-week">
+                    <li class="nav-item selected" id="btn-week">
                         <span class="my-auto mx-auto"> Неделя</span>
                     </li>
-                    <li class="nav-item selected" id="btn-month">
-                        <i class="glyphicon glyphicon-calendar"><span> Месяц</span></i>
+                    <li class="nav-item" id="btn-month">
+                        <i class="glyphicon glyphiconzz-calendar"><span> Месяц</span></i>
                     </li>
                 </ul>
                 <div class="col-lg-8 col-lg-offset-3">
@@ -142,7 +142,7 @@
                     <button class="btn my-2 my-sm-0 control" data-toggle="tooltip" title="Предыдущий месяц" type="button" onclick="changeDate(0)">
                         <
                     </button>
-                    <button class="btn my-2 my-sm-0 control" data-toggle="tooltip" title="Сегодня" type="button" onclick="setCurDate()">
+                    <button class="btn my-2 my-sm-0 control" data-toggle="tooltip" title="Текущий месяц" type="button" onclick="setCurDate()">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </button>
                     <input type="number" data-toggle="tooltip" title="Месяц" min="1" max="12" id="date-month">

@@ -1,6 +1,7 @@
 var arr = dataGenerator(3, 10)
-window.onload=render(1,5);
-window.onload=mainWindow();
+genMonth(1,5);
+mainWindow();
+showWeek();
 var selectedDayId = new Date().getDate();
 
 function daysInMonth(month) {
@@ -53,7 +54,7 @@ function changeDate(direction) {
     }
 }
 
-function render(b, e) {
+function genMonth(b, e) {
     var curDate = new Date()
 
     setCurDate()
@@ -77,7 +78,7 @@ function render(b, e) {
                 for(; j<= 7; j++)
                 {
                     var bord = document.createElement('div')
-                    bord.id = id
+                    bord.id = (i-1)*7 + j;
                     bord.className = 'col day next'
                     document.getElementById(i + 'row').appendChild(bord)  
                 }
@@ -127,18 +128,65 @@ function render(b, e) {
                 $(this).addClass('active')
                 $("#time").value = 12
             }
+            document.getElementById(id).style.display = 'none'
         }
+    }
+    document.getElementById('btn-week').onclick = function() {   
+        document.getElementById('btn-month').classList.remove('selected');
+        this.classList.add('selected');
+        clear();
+        showWeek();
+    }
 
-        document.getElementById('btn-week').onclick = function() {   
-            document.getElementById('btn-month').classList.remove('selected')
-            this.classList.add('selected')
-        }
+    document.getElementById('btn-month').onclick = function() {   
+        document.getElementById('btn-week').classList.remove('selected');
+        this.classList.add('selected');
+        clear();
+        showMonth();
+    }
+}
 
-        document.getElementById('btn-month').onclick = function() {   
-            document.getElementById('btn-week').classList.remove('selected')
-            this.classList.add('selected')
+function showWeek()
+{
+    var curDate = new Date().getDate();
+    var week = Math.floor(curDate/7) + 1;
+
+    for(var j = week; j <= week + 1; j++)
+    {
+        for(var i = (j - 1)*7 + 1, k = 0; i <= j*7; i++, k++)
+        {
+            if(i < curDate)
+            {
+                var bord = document.createElement('div')
+                bord.className = 'col day next needRemove'
+                document.getElementById(j + 'row').appendChild(bord)
+            }
+            else
+            {
+                document.getElementById(j + 'row').appendChild(document.getElementById(i))
+                document.getElementById(i).style.display = 'block'
+            }
         }
-    }          
+    }
+}
+
+function showMonth()
+{
+    var curDate = new Date();
+    for(var  i = 1; i <= daysInMonth(curDate.getMonth()) + 4; i++)
+    {
+        document.getElementById(i).style.display = 'block'
+    }
+}
+
+function clear()
+{
+    var curDate = new Date();
+    $('.needRemove').remove()
+    for(var  i = 1; i <= daysInMonth(curDate.getMonth()) + 4; i++)
+    {
+        document.getElementById(i).style.display = 'none'
+    }
 }
 
 function mainInfoUpdate(id, curDate)

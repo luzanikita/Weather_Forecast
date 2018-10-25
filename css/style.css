@@ -1,6 +1,11 @@
-* {
+z* {
     margin: 0;
     padding: 0;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 body {
@@ -22,13 +27,20 @@ li {
     text-align: center;
 }
 
+
+
 .selected {
     border-bottom: 3px solid orange;
 }
 
+#btn-month, #btn-week {
+    color: #fff;
+}
+
 #btn-week:hover, #btn-month:hover {
     color: rgba(255, 255, 255, 0.76);
-    transition: 0.25s
+    transition: 0.25s;
+    cursor: pointer;
 }
 
 .navbar {
@@ -87,13 +99,9 @@ li {
 .day {
     background-color: rgba(63, 130, 192, 0.171);
     padding: 0;
-    margin: 3px;
+    margin: 2px;
     color: rgb(12, 41, 68);
     border-radius: 2px;
-}
-
-.next {
-    background-color: rgb(227, 247, 255);
 }
 
 .day:hover {
@@ -102,8 +110,13 @@ li {
     cursor: pointer;
 }
 
+.next {
+    background-color: rgb(227, 247, 255);
+}
+
 .active {
     border: orange solid 3px;
+    margin: -1px;
 }
 
 .time {
@@ -127,14 +140,6 @@ li {
     width: 40px;
     height: 35px;
     border-radius: 5px;
-}
-
-#btn-month {
-    color: #fff;
-}
-
-#btn-week {
-    color: #fff;
 }
 
 #date {
@@ -204,4 +209,8 @@ li {
 
 #month-ico {
     font-size: 32px;
+}
+
+#navbar-brand {
+    cursor: pointer;
 }
