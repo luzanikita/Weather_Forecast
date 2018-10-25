@@ -45,6 +45,8 @@ li {
 
 .navbar {
     background-color: rgb(19, 64, 107);
+    margin-left: -0.2%;
+    margin-right: -0.2%;
 }
 
 .image-clouds {
@@ -125,6 +127,15 @@ li {
     font-size: 16px;
     color: rgba(22, 61, 97, 0.63);
     text-shadow: 0px 0px 0px rgba(17, 34, 51, 0.192);
+}
+
+.selected-time {
+    margin-left: -10px;
+    padding: 0px;
+    font-size: 21px;
+    color: rgba(22, 61, 97, 0.63);
+    text-shadow: 0px 0px 0px rgba(17, 34, 51, 0.349);
+    text-align: center;
 }
 
 .control {

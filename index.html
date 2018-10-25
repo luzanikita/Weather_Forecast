@@ -31,7 +31,7 @@
                         <span class="my-auto mx-auto"> Неделя</span>
                     </li>
                     <li class="nav-item" id="btn-month">
-                        <i class="glyphicon glyphiconzz-calendar"><span> Месяц</span></i>
+                        <i class="glyphicon glyphicon-calendar"><span> Месяц</span></i>
                     </li>
                 </ul>
                 <div class="col-lg-8 col-lg-offset-3">
@@ -59,10 +59,15 @@
         <div class="container my-3 w-75">
             <div class="row align-items-center" id="main-info">
                 <div class="col-lg-5">
-                    <div class="row" id="main-temp"><i class="wi wi-night-sleet"><span id='main-temp-span'></span></i></div>
+                    <div class="row" id="main-temp"><i class="wi" id="main-wi"><span id='main-temp-span'></span></i></div>
                     <div class="row" id="main-date"><span id='main-date-span'></span></div>
                 </div>
                 <div class="col-lg-6" id="extra">
+                    <div class="row my-3">
+                        <div class="col-lg-4 mx-auto selected-time">
+                            <span id="selected-time"></span>
+                        </div>
+                    </div>
                     <div class="row my-3">
                         <div class="col time mx-auto">
                             <span>00:00</span>
@@ -106,7 +111,7 @@
                             <option value="24">
                         </datalist>
                     </div>  
-                    <div class="row my-3 mx-auto"></div>
+                    <div class="row my-1 mx-auto"></div>
                     <div class="row add mx-auto">
                         <div class="col-lg-4">
                             <div class="row my-1 mx-auto">
