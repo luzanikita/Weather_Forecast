@@ -90,7 +90,7 @@ li {
 .week {
     font-weight: bold;
     text-align: center;
-    background-color: rgb(64, 117, 167);
+    background-color: rgb(59, 111, 160);
     color: rgb(255, 255, 255);
     text-shadow: 1px 1px 1px #000;
     border: 2px solid  rgb(43, 104, 161);
@@ -102,7 +102,7 @@ li {
     background-color: rgba(63, 130, 192, 0.171);
     padding: 0;
     margin: 2px;
-    color: rgb(12, 41, 68);
+    color: rgba(12, 41, 68, 0.835);
     border-radius: 2px;
 }
 
@@ -134,7 +134,7 @@ li {
     padding: 0px;
     font-size: 21px;
     color: rgba(22, 61, 97, 0.63);
-    text-shadow: 0px 0px 0px rgba(17, 34, 51, 0.349);
+    text-shadow: 0px 0px 0px rgba(17, 34, 51, 0.637);
     text-align: center;
 }
 
@@ -174,7 +174,7 @@ li {
 
 .add {
     font-size: 20px;
-    color: rgb(18, 59, 97);;
+    color: rgb(31, 77, 119);
     text-shadow: 0px 0px 0px #000;
 }
 

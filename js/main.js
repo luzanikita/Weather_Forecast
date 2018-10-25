@@ -109,6 +109,7 @@ function genMonth(b, e) {
             var dataRow = document.createElement('div');
             dataRow.id = 'DatarRow' + id
             dataRow.className = 'row my-2'
+            dataRow.style.fontSize = "16px";
 
             var span = document.createElement('div');
             span.className = 'mx-auto'
@@ -122,7 +123,7 @@ function genMonth(b, e) {
             var ico = document.createElement('i');
             ico.id = 'day-ico' + id
             ico.className = `wi ${randPict()} mx-auto`
-            ico.style.fontSize = "32px";
+            ico.style.fontSize = "28px";
 
             var grad = document.createElement('span');
             grad.id = 'span1' + id
